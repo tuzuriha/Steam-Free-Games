@@ -60,20 +60,17 @@ def get_free_steam_games(callback):
     callback(games)
 
 def show_table(games):
-    # Calculate margins for the table
     left_margin = 50
     right_margin = 50
     width = root.winfo_width() - left_margin - right_margin
-    height = root.winfo_height() - 200  # Reduce height for top and bottom margins
+    height = root.winfo_height() - 200
 
-    # Center the table
     tree = ttk.Treeview(root, columns=("Название", "Ссылка"), show="headings")
     tree.heading("Название", text="Название")
     tree.heading("Ссылка", text="Ссылка")
     tree.column("Название", width=width // 2)
     tree.column("Ссылка", width=width // 2)
 
-    # Center the table vertically
     tree.place(x=left_margin, y=(root.winfo_height() - height) // 2, width=width, height=height)
     for name, link in games:
         tree.insert("", tk.END, values=(name, link))
@@ -86,8 +83,8 @@ def open_link(tree):
         webbrowser.open(link)
 
 def start_loading():
-    button.place_forget()  # Убираем кнопку
-    loader.place(relx=0.5, rely=0.3, anchor="center")  # Показываем загрузку
+    button.place_forget()
+    loader.place(relx=0.5, rely=0.3, anchor="center")
 
     def work():
         get_free_steam_games(callback=on_games_loaded)
@@ -96,13 +93,13 @@ def start_loading():
 
 def on_games_loaded(games):
     time.sleep(1)
-    loader.show_tick()  # Показываем галочку после завершения загрузки
-    root.after(700, lambda: loader.hide_loader())  # Скрываем загрузку
-    root.after(700, lambda: show_table(games))  # Показываем таблицу
+    loader.show_tick()
+    root.after(700, lambda: loader.hide_loader())
+    root.after(700, lambda: show_table(games))
 
 def start_loading():
-    button.place_forget()  # Hide the button
-    loader.place(relx=0.5, rely=0.5, anchor="center")  # Center the loader
+    button.place_forget()
+    loader.place(relx=0.5, rely=0.5, anchor="center")
 
     def work():
         get_free_steam_games(callback=on_games_loaded)
@@ -127,7 +124,7 @@ style.map("Treeview", background=[("selected", "#444444")])
 
 button = tk.Button(root, text="🔍 Найти бесплатные игры", font=("Segoe UI", 14), bg="#dddddd",
                    fg="black", relief="flat", command=start_loading)
-button.place(relx=0.5, rely=0.5, anchor="center")  # Center the button
+button.place(relx=0.5, rely=0.5, anchor="center")
 
 loader = LoaderCanvas(root)
 
