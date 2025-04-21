@@ -113,8 +113,6 @@ root.title("Steam Free Games")
 root.geometry("700x450")
 root.configure(bg="#1e1e1e")
 root.resizable(False, False)
-icon = PhotoImage(file="freesteamICO.png")
-root.iconphoto(False, icon)
 
 style = ttk.Style()
 style.theme_use("clam")
