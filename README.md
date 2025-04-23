@@ -27,5 +27,5 @@
 6. Выбераем распакованный файл
 7. Готово! Теперь можно пользоваться Steem Free Games прямо в браузере
 ### FireFox
-1. Скачайте расширение на сайте https://addons.mozilla.org/ru/firefox/addon/steam-free-games-finder/
+1. Скачайте расширение на сайте https://addons.mozilla.org/ru/firefox/addon/steam-free-games/
 2. Запускаете и готово! Теперь можно пользоваться Steem Free Games прямо в браузере
